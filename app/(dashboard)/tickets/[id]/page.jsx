@@ -1,5 +1,21 @@
 import { notFound } from "next/navigation"
 
+const dynamicParams = true
+
+// Genera metadata dinámico
+export async function generateMetadata({params}) {
+
+    const id = params.id
+
+    const response = await fetch(`http://localhost:4000/tickets/${id}`)
+
+    const ticket = await response.json()
+
+    return {
+        title: `Yue Helpdesk | ${ticket.title}`
+    }
+}
+
 export async function generateStaticParams() {
     const response = await fetch('http://localhost:4000/tickets/')
     const tickets = await response.json()

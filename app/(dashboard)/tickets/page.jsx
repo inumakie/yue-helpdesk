@@ -2,6 +2,10 @@ import { Suspense } from "react"
 import Ticketlist from "./Ticketlist"
 import Loading from "../loading"
 
+export const metadata = {
+  title: 'Yue-Helpdesk | Tickets',
+}
+
 export default function Tickets() {
   return (
     <main>
